@@ -71,9 +71,9 @@ attributes:@{NSFontAttributeName:font} context:nil].size : CGSizeZero;
     _colorTagBoardNomal = RGB_YF(106, 127, 164);
     _colorTagBoardSelect = _colorTagBoardNomal;
     
-    self.minInputWidth = 80;
+    self.minInputWidth = 130;
     
-    self.maxInputWidth = 130;
+    self.maxInputWidth = 150;
     
     [self addSubview: self.tgScrollView];
     
@@ -121,14 +121,31 @@ attributes:@{NSFontAttributeName:font} context:nil].size : CGSizeZero;
     CGFloat tfXX = preFrame.origin.x + preFrame.size.width + _tagPaddingSize.width;
     CGFloat tfYY = preFrame.origin.y ;
     
+    CGFloat maxWidth = _tgScrollView.frame.size.width -  _tagPaddingSize.width;
+    CGFloat minWidth = self.minInputWidth;
+    CGSize size ;
+    CGFloat width;
+    if(self.inputTextField.text.length) {
+        size = YF_MULTILINE_TEXTSIZE(self.inputTextField.text, self.inputTextField.font, CGSizeMake(1000, _tagHeight), 0);
+        width = ceil(size.width) + _tagHeight + 2;
+    } else {
+        size = CGSizeZero;
+        width = minWidth;
+    }
+
+    if(width < minWidth) {
+        width = minWidth;
+    }
+    if(width > maxWidth) {
+        width = maxWidth;
+    }
     
-    if (tfXX >= _tgScrollView.frame.size.width - _tagPaddingSize.width - self.minInputWidth) {
+    if (tfXX >= _tgScrollView.frame.size.width - _tagPaddingSize.width - width) {
         
         tfXX = _tagPaddingSize.width;
         
         tfYY += _tagPaddingSize.height + preFrame.size.height;
     }
-    CGFloat width = self.maxInputWidth < (_tgScrollView.frame.size.width - tfXX)?self.maxInputWidth:(_tgScrollView.frame.size.width - tfXX);
     
     self.inputTextField.frame = CGRectMake(tfXX, tfYY, width, _tagHeight);
     
@@ -355,9 +372,15 @@ attributes:@{NSFontAttributeName:font} context:nil].size : CGSizeZero;
         [_tgScrollView addSubview:_inputTextField];
         
         _inputTextField.returnKeyType = UIReturnKeyDone;
+        
+        [_inputTextField addTarget:self action:@selector(textFieldEditedChangeFY:) forControlEvents:UIControlEventEditingChanged];
     }
     
     return _inputTextField;
+}
+
+- (void)textFieldEditedChangeFY:(UITextField *)textField {
+    [self setInputTextFieldFrame];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YFTagView/YFTagView/YFTagView.m"
-            timestampString = "511955266.117335"
+            timestampString = "548592957.874874"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "439"
-            endingLineNumber = "439"
+            startingLineNumber = "462"
+            endingLineNumber = "462"
             landmarkName = "-removeTagWithIndex:"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YFTagView/YFTagView/YFTagView.m"
-            timestampString = "511953840.678578"
+            timestampString = "548592957.875463"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "-setInputTextFieldFrame"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YFTagView/YFTagView/YFTagView.m"
-            timestampString = "511953840.678578"
+            timestampString = "548592957.875821"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "-setInputTextFieldFrame"
             landmarkType = "7">
          </BreakpointContent>
