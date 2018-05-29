@@ -37,7 +37,7 @@
         
         return ((YFTestModel *)model).tagName;
     }];
-    
+    // 新的tag
     [tagView setTagToModel:^id(NSString *tag) {
         YFTestModel *model = [[YFTestModel alloc] init];
         model.tagName = tag;

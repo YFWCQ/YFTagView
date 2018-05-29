@@ -387,21 +387,19 @@ attributes:@{NSFontAttributeName:font} context:nil].size : CGSizeZero;
 {
     if (textField.text.length) {
         
-        
-        
-
         if ([self isExistedSametag:textField.text])
         {
             return  YES;
         }
+        NSString *newTag = textField.text;
+        textField.text = nil;
         id model;
         if (self.tagToModel) {
-            model = self.tagToModel(textField.text);
+            model = self.tagToModel(newTag);
             [_tagModelArray addObject:model];
         }
-        [self addTagToLast:textField.text];
+        [self addTagToLast:newTag];
         [self setInputTextFieldFrame];
-        textField.text = @"";
         [self.tgScrollView scrollRectToVisible:CGRectMake(0, self.tgScrollView.contentSize.height -1, self.frame.size.width, 1) animated:YES];
     }
     return YES;
