@@ -1,5 +1,6 @@
 # YFTagView
  
+ ![Alt text](https://github.com/YFWCQ/YFTagView/raw/master/demo.gif)
  
  YFTagView *tagView = [[YFTagView alloc] initWithFrame:CGRectMake(10, 100, self.view.frame.size.width - 20, self.view.frame.size.height - 10)];
     
